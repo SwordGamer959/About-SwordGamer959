@@ -633,13 +633,22 @@ function initGemHuntGame() {
   const targets = [];
   const particles = [];
 
-  // Responsive Canvas Sizing
+  // Responsive Canvas Sizing — supports phones, tablets, laptops and desktops.
+  // ResizeObserver catches container changes that ordinary window resize events can miss.
   function resizeCanvas() {
-    canvas.width = canvas.parentElement.offsetWidth;
-    canvas.height = canvas.parentElement.offsetHeight;
+    if (!canvas.parentElement) return;
+    const rect = canvas.parentElement.getBoundingClientRect();
+    canvas.width = Math.max(280, Math.floor(rect.width));
+    canvas.height = Math.max(260, Math.floor(rect.height));
   }
   resizeCanvas();
-  window.addEventListener('resize', resizeCanvas, { passive: true });
+  if ('ResizeObserver' in window) {
+    const gameResizeObserver = new ResizeObserver(resizeCanvas);
+    gameResizeObserver.observe(canvas.parentElement);
+  } else {
+    window.addEventListener('resize', resizeCanvas, { passive: true });
+  }
+  window.addEventListener('orientationchange', resizeCanvas, { passive: true });
 
   // Web Audio API Retro Sound Synthesizer
   let audioCtx = null;
@@ -700,10 +709,16 @@ function initGemHuntGame() {
   function spawnTarget() {
     if (gameState !== 'playing') return;
 
-    const size = Math.random() < 0.3 ? 42 : 36;
-    const padding = 50;
-    const x = padding + Math.random() * (canvas.width - padding * 2 - size);
-    const y = padding + Math.random() * (canvas.height - padding * 2 - size);
+    // Keep targets comfortably tappable on touch devices while remaining compact on desktop.
+    const touchDevice = window.matchMedia?.('(pointer: coarse)').matches;
+    const size = touchDevice
+      ? (Math.random() < 0.3 ? 48 : 44)
+      : (Math.random() < 0.3 ? 42 : 36);
+    const padding = touchDevice ? Math.max(24, Math.min(50, canvas.width * 0.09)) : 50;
+    const usableWidth = Math.max(1, canvas.width - padding * 2 - size);
+    const usableHeight = Math.max(1, canvas.height - padding * 2 - size);
+    const x = padding + Math.random() * usableWidth;
+    const y = padding + Math.random() * usableHeight;
 
     const rand = Math.random();
     let type = 'diamond';

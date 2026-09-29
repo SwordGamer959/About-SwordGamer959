@@ -5,7 +5,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    base: process.env.VITE_BASE || (process.env.NODE_ENV === 'production' ? '/SwordGamer959/' : '/'),
+    base: process.env.VITE_BASE || (process.env.NODE_ENV === 'production' ? '/About-SwordGamer959/' : '/'),
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
