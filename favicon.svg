@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="8" fill="#07070b"/>
+  <rect x="1" y="1" width="30" height="30" rx="7" fill="none" stroke="#a855f7" stroke-width="1.5" stroke-opacity="0.3"/>
+  <!-- Diamond Sword Silhouette -->
+  <path d="M25 7L21 3L17 7L19 9L11 17L9 15L7 17L7 19L5 21L7 23L9 25L11 27L13 25L15 25L17 23L15 21L23 13L25 15Z" fill="#a855f7"/>
+  <path d="M23 7L21 5L19 7L20 8L13 15L11 17L13 19L15 21L17 19L24 12L25 13L27 11Z" fill="#38bdf8" opacity="0.9"/>
+  <rect x="7" y="23" width="2" height="2" fill="#ef4444"/>
+</svg>

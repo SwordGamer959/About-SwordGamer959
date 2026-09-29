@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-primary: #07070b;
+    --bg-surface: #0e0e15;
+    --bg-surface-elevated: #151520;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-accent: rgba(168, 85, 247, 0.25);
+    --accent-purple: #a855f7;
+    --accent-red: #ef4444;
+    --accent-cyan: #38bdf8;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: #e2e8f0;
+    overflow-x: hidden;
+  }
+
+  /* Custom selection color */
+  ::selection {
+    background-color: rgba(168, 85, 247, 0.35);
+    color: #f3e8ff;
+  }
+}
+
+/* Typographic utility classes */
+.font-display {
+  font-family: 'Syne', 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.font-mono-numbers {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Glass panel surfaces */
+.glass-panel {
+  background: rgba(14, 14, 21, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-hover {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(20, 20, 30, 0.85);
+  border-color: rgba(168, 85, 247, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Subtle Nether Ember and Grid Pattern */
+.bg-gaming-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Glowing text and button accents */
+.text-glow-purple {
+  text-shadow: 0 0 24px rgba(168, 85, 247, 0.5);
+}
+
+.text-glow-red {
+  text-shadow: 0 0 24px rgba(239, 68, 68, 0.45);
+}
+
+.box-glow-purple {
+  box-shadow: 0 0 30px -5px rgba(168, 85, 247, 0.2);
+}
+
+/* Pixel art rendering for game elements */
+.pixelated {
+  image-rendering: pixelated;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #07070b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #272738;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f58;
+}

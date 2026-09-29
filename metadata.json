@@ -1,0 +1,6 @@
+{
+  "name": "SwordGamer959 – Gaming Portfolio & Minecraft Hub",
+  "description": "The official gaming portfolio of SwordGamer959. Featuring Minecraft gameplay chronicles, YouTube showcase (@SwordGamer8682), skills overview, playable mini-game, and community links.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
